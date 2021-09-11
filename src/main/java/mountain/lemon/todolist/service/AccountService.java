@@ -8,11 +8,16 @@ import mountain.lemon.todolist.repo.AccountRepo;
 
 @Service
 public class AccountService {
+    
     @Autowired
     private AccountRepo accountRepo;
 
     public Account getAccount(String email) throws Exception {
         return accountRepo.findById(email).orElseThrow(() ->
             new Exception("존재하지 않는 계정이다."));
+    }
+
+    public void save(Account account) {
+        accountRepo.save(account);
     }
 }
