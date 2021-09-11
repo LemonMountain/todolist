@@ -24,4 +24,10 @@ public class HomeController {
         service.save(account);
         return "info";
     }
+
+    @GetMapping("mypage")
+    String mypage(String email, Model model) throws Exception {
+        model.addAttribute("account", service.getAccount(email));
+        return "mypage";
+    }
 }
