@@ -15,13 +15,13 @@ import lombok.Setter;
 @Getter
 @Setter
 public class Account implements Serializable {
-    
-    private static final long serialVersionUID = 1L;
 
-    @Id
+	private static final long serialVersionUID = 1L;
+
+	@Id
 	@Column(length = 32)
 	private String email;
-	
+
 	@Column(length = 128)
 	private String password;
 
