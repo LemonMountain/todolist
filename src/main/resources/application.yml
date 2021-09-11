@@ -1,20 +1,24 @@
 server:
-    port: 8236
-# spring:
-#     datasource:
-#         driver-class-name: oracle.jdbc.driver.OracleDriver
-#         url: jdbc:oracle:thin:@localhost:1521:XE
-#         username: hr
-#         password: hr
-#     jpa:
-#         hibernate: 
-#             ddl-auto: create
-#         generate-ddl: false
-#         show-sql: true
-#         database: oracle
-#         database-platform: org.hibernate.dialect.Oracle11gExpressEdition
-# logging:
-#     level:
-#         org:
-#             hibernate: info
+    port: 80
+
+spring:
+    thymeleaf: 
+        prefix: classpath:templates/
+        suffix: .html
+        cache: false
+
+    datasource:
+        url: jdbc:mariadb://35.184.75.127:3306/todolist
+        driver-class-name: org.mariadb.jdbc.Driver
+        username: minman
+        password: Tlqkf!@
+    
+    jpa:
+        open-in-view: false
+        generate-ddl: true
+        show-sql: true
+        hibernate:
+            ddl-auto: update
+
+        
 
