@@ -5,10 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=, initial-scale=1.0">
     <title>Main</title>
-    <head th:include="/fragments/include.html::bootstrap"></head>
+    <head th:include="fragments/include.html::bootstrap"></head>
 </head>
 <body>
-    <h1 th:if="${session.account != null}" th:text="|환영합니다. ${account.nickname} !! |"></h1>
+    <div th:replace="fragments/include.html::navbar"></div>
+    <div th:if="${session.account != null}">
+        <h1 th:text="|환영합니다. ${session.account.nickname} !! |"></h1>
+    </div>
 
     <div id="weather">
         <span></span>

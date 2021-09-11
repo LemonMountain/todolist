@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>회원가입</title>
+  <link th:include="fragments/include.html::bootstrap">
+  <script defer src="/js/signup.js"></script>
+  <link rel="stylesheet" href="/css/signup.css">
+</head>
+<body>
+  <div class="container">
+    <form method="post" class="needs-validation" novalidate>
+      <div class="m-3">
+        <h2 class="text-center">
+          회원가입
+        </h2>
+      </div>
+      <div class="mb-3">
+        <label for="email" class="form-label">
+          이메일주소
+        </label>
+        <input type="email" class="form-control" id="email" name="email" required placeholder="email@example.com">
+        <div class="valid-feedback">
+          이메일처럼 보이네요.
+        </div>
+        <div class="invalid-feedback">
+          이메일이 뭔지 모르시나요? >
+          <a href="https://namu.wiki/w/%EC%9D%B4%EB%A9%94%EC%9D%BC">이메일이란?</a>
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="password" class="form-label">
+          비밀번호
+        </label>
+        <input type="password" class="form-control" id="password" name="password" required minlength="8" onkeyup="password2.pattern = this.value" placeholder="********">
+        <div class="valid-feedback">
+          적절한 비밀번호 처럼 보여요.
+        </div>
+        <div class="invalid-feedback">
+          비밀번호 길이가 너무합니다.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="password2" class="form-label">
+          비밀번호 확인
+        </label>
+        <input type="password" class="form-control" id="password2" pattern="password.value" required placeholder="********">
+        <div class="invalid-feedback">
+          비밀번호가 다릅니다.
+        </div>
+      </div>
+      <div class="mb-3">
+        <label for="nickname" class="form-label">
+          별명
+        </label>
+        <input type="text" class="form-control" id="nickname" name="nickname" required minlength="3" placeholder="홍길동">
+        <div class="invalid-feedback">
+          별명은 최소 3글자 이상이어야 합니다.
+        </div>
+      </div>
+      <div class="mb-3 d-grid">
+        <button class="btn btn-primary">회원가입</button>
+      </div>
+      <div class="text-center">
+        <a href="#" class="m-1" onclick="history.back();">돌아가기</a>
+        <a href="/" class="m-1">메인으로</a>
+      </div>
+    </form>
+  </div>
+</body>
+</html>

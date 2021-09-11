@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="ko">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta th:include="fragments/include.html::bootstrap">
+  <link rel="stylesheet" href="/css/message.css">
+</head>
+<body>
+  <div th:if="${ message != null }">
+    <div class="message" th:text="${ message }"></div>
+    <input type="hidden" id="url" th:value="${ url }">
+    <script>
+      setTimeout( timer => location.href = url.value, 3500);
+    </script>
+  </div>
+  <div th:if="${ message == null }">
+    <script>
+        location.href = '/';
+    </script>
+  </div>
+</body>
+</html>
