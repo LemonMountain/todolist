@@ -18,7 +18,7 @@ import mountain.lemon.todolist.utils.SHA256;
 @Getter
 @Setter
 @ToString
-@Accessors(chain = true)
+@Accessors(chain = true)//컬럼명이 많으면 많을 수록 유리한 '메소드 체이닝' 메인 컨트롤러 ㄱㄱ
 public class Account implements Serializable {
 
 	private static final long serialVersionUID = 1L;
