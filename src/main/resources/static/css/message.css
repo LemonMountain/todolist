@@ -1,0 +1,16 @@
+.message {
+  position: fixed;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 2rem;
+  animation: movement 3s forwards;
+  width: fit-content;
+}
+
+@keyframes movement {
+  from { left: -50%; }
+  20%  { left: 50%;  }
+  80%  { left: 50%;  }
+  to   { left: 150%; }
+}
