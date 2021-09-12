@@ -27,7 +27,7 @@ public class Account implements Serializable {
 	@Column(length = 32)
 	private String email;
 
-	@Column(length = 128)
+	@Column(length = 64)
 	private String password;
 
 	@Column(length = 32)
