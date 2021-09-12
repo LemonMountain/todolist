@@ -10,6 +10,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 
 import mountain.lemon.todolist.model.Account;
 import mountain.lemon.todolist.service.AccountService;
+import mountain.lemon.todolist.utils.Responser;
 
 @Controller 
 public class Main {
@@ -24,17 +25,13 @@ public class Main {
     @PostMapping("signup")
     String signup(Account account, Model model) {
         accountService.save(account);
-        model.addAttribute("url", "/");
-        model.addAttribute("message", "회원가입이 완료되었습니다.");
-        return "signup";
+        return Responser.alert("/", "회원가입이 완료되었습니다.");
     }
 
     @GetMapping("login") 
     String login(HttpSession session, Model model) { 
         boolean isLogined = session.getAttribute("account") != null;
-        model.addAttribute("url", "/");
-        model.addAttribute("message", "이미 로그인 되어 있습니다.");
-        return isLogined ? "message" : "login";
+        return isLogined ? Responser.alert("/", "넌 이미 로그인 되어있다... 아직 깨닫지 못했을 뿐") : "login";
     }
 
     @PostMapping("login") 
@@ -45,22 +42,17 @@ public class Main {
             if (!userInputPassword.equalsIgnoreCase(account.getPassword()))
                 throw new Exception("비밀번호가 다릅니다.");
             session.setAttribute("account", account);
-            model.addAttribute("url", "/");
-            model.addAttribute("message", "로그인 되었습니다.");
+            return Responser.alert("/", "로그인 되었습니다.");
         }
         catch (Exception e) {
-            model.addAttribute("url", "/login");
-            model.addAttribute("message", e.getLocalizedMessage());
+            return Responser.alert("login", e.getLocalizedMessage());
         }
-        return "message";
     }
 
     @GetMapping("logout")
     String logout(HttpSession session, Model model) {
         session.invalidate();
-        model.addAttribute("url", "/");
-        model.addAttribute("message", "로그아웃... 성공적");
-        return "message";
+        return Responser.alert("/", "로그아웃... 성공적");
     }
 
     @GetMapping("message") String message() { return "message"; }

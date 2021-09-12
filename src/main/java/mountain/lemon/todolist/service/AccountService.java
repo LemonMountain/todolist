@@ -21,6 +21,4 @@ public class AccountService {
     public void save(Account account) {
         accountRepo.save(account);
     }
-
-    
 }
