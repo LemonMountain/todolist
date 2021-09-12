@@ -23,19 +23,25 @@ public class Main {
     @GetMapping("signup") String signup() { return "signup"; }
 
     @PostMapping("signup")
-    String signup(Account account, Model model) {
-        accountService.save(account);
-        return Responser.alert("/", "회원가입이 완료되었습니다.");
+    String signup(Account account) {
+        String message = "회원가입이 완료되었습니다.";
+        String url     = "/";
+        try { accountService.save(account); }
+        catch (Exception e) {
+            message = "해당 이메일이 이미 사용중입니다.";
+            url = "/signup";
+        }
+        return Responser.alert(url, message);
     }
 
     @GetMapping("login") 
-    String login(HttpSession session, Model model) { 
+    String login(HttpSession session) { 
         boolean isLogined = session.getAttribute("account") != null;
         return isLogined ? Responser.alert("/", "넌 이미 로그인 되어있다... 아직 깨닫지 못했을 뿐") : "login";
     }
 
     @PostMapping("login") 
-    String Login(HttpSession session, Account account, Model model) {
+    String Login(HttpSession session, Account account) {
         try {
             String userInputPassword = account.getPassword();
             account = accountService.getAccount(account);
@@ -50,7 +56,7 @@ public class Main {
     }
 
     @GetMapping("logout")
-    String logout(HttpSession session, Model model) {
+    String logout(HttpSession session) {
         session.invalidate();
         return Responser.alert("/", "로그아웃... 성공적");
     }

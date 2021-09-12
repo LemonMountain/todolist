@@ -1,6 +1,7 @@
 package mountain.lemon.todolist.model;
 
 import java.io.Serializable;
+import java.util.Date;
 
 import javax.persistence.Column;
 import javax.persistence.Entity;
@@ -32,6 +33,8 @@ public class Account implements Serializable {
 
 	@Column(length = 32)
 	private String nickname;
+
+	private Date signup;
 
 	public Account setPassword(String password) {
 			this.password = password.length() != 64 ? SHA256.encrypt(password) : password;
