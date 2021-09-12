@@ -43,6 +43,10 @@ public class Main {
     @PostMapping("login") 
     String Login(HttpSession session, Account account) {
         try {
+            // account
+            //     .setEmail("minman@gmail.com")
+            //     .setNickname("fdjk")
+            //     .setPassword("123456"); 메소드 체이닝
             String userInputPassword = account.getPassword();
             account = accountService.getAccount(account);
             if (!userInputPassword.equalsIgnoreCase(account.getPassword()))
