@@ -4,7 +4,6 @@ import javax.servlet.http.HttpSession;
 
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
-import org.springframework.ui.Model;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PostMapping;
 
@@ -65,5 +64,6 @@ public class Main {
         return Responser.alert("/", "로그아웃... 성공적");
     }
 
-    @GetMapping("message") String message() { return "message"; }
+    @GetMapping("message") 
+    String message(String url, String message) { return Responser.alert(url, message); }
 }

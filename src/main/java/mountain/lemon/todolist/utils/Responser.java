@@ -18,7 +18,7 @@ public class Responser {
   public static String alert(String url, String message) {
     // 현재 진행중인 컨트롤러의 해당 Request를 찾아 모델 세팅
     HttpServletRequest request = ((ServletRequestAttributes)RequestContextHolder.currentRequestAttributes()).getRequest();
-    request.setAttribute("url", url);
+    request.setAttribute("url", url != null ? url : "/");
     request.setAttribute("message", message);
     return MESSAGE_VIEW_NAME;
   }

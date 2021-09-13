@@ -19,7 +19,8 @@
                 <div class="d-flex">
                     <a th:if="${ session.account == null }" href="/login" class="btn btn-success me-2">로그인</a>
                     <a th:if="${ session.account != null }" href="/logout" class="btn btn-danger me-2">로그아웃</a>
-                    <a href="/signup" class="btn btn-secondary">회원가입</a>
+                    <a th:if="${ session.account == null }" href="/signup" class="btn btn-secondary">회원가입</a>
+                    <a th:if="${ session.account != null }" href="/user" class="btn btn-secondary">내정보</a>
                 </div>
             </div>
         </nav>

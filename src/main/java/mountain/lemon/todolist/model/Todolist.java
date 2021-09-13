@@ -37,5 +37,5 @@ public class Todolist implements Serializable{
 	private Account account;
 
     @Column(columnDefinition = "int default 0")
-    private int checkComplete;
+    private int checkComplete = 0;
 }
