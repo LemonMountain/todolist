@@ -1,12 +1,39 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="h-100">
 <head>
   <meta charset="UTF-8">
   <meta http-equiv="X-UA-Compatible" content="IE=edge">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Document</title>
+  <meta th:include="fragments/include.html::bootstrap">
 </head>
-<body>
-  여기는 사용자 페이지 입니다.
+<body class="d-flex flex-column h-100">
+  <div th:include="fragments/include.html::navbar"></div>
+  <div class="container">
+    <h2 class="mt-5">
+      내정보
+    </h2>
+    <table class="table">
+      <tbody>
+        <tr>
+          <th>프로필 사진</th>
+          <td><i style="font-size: 5rem;" class="bi bi-person-circle"></i></td>
+        </tr>
+        <tr>
+          <th>이메일</th>
+          <td th:text="${ session.account.email }"></td>
+        </tr>
+        <tr>
+          <th>닉네임</th>
+          <td th:text="${ session.account.nickname }"></td>
+        </tr>
+        <tr>
+          <th>가입일</th>
+          <td th:text="${ session.account.signup }"></td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+  <div th:replace="fragments/include.html::footer"></div>
 </body>
 </html>

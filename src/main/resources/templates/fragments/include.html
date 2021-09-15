@@ -8,7 +8,8 @@
 </head>
 <head th:fragment="bootstrap">
     <link href="/css/bootstrap.css" rel="stylesheet">
-    <script src="/js/bootstrap.js"></script>
+    <link href="/css/bootstrap.icon.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.5.0/font/bootstrap-icons.css">
     <!-- <script src="/js/weather.js"></script> -->
 </head>
 <body>
@@ -25,5 +26,11 @@
             </div>
         </nav>
     </div>
+
+    <footer th:fragment="footer" class="footer mt-auto py-3 bg-dark">
+        <div class="container">
+            <span class="text-muted">Copyright (C) 2021 lm, mm ALL RIGHT RESERVED</span>
+        </div>
+    </footer>
 </body>
 </html>
